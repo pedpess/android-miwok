@@ -42,11 +42,14 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         defaultTextView.setText(currentWord.getmDefaultTranslation());
 
-        if (PhrasesActivity)
-
         ImageView iconView = (ImageView) listItemView.findViewById(R.id.image);
 
-        iconView.setImageResource(currentWord.getmImageResourceId());
+        if (currentWord.hasImage()) {
+            iconView.setImageResource(currentWord.getmImageResourceId());
+            iconView.setVisibility(View.VISIBLE);
+        } else {
+            iconView.setVisibility(View.GONE);
+        }
 
         return listItemView;
     }
