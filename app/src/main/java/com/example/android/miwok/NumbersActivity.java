@@ -61,7 +61,6 @@ public class NumbersActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Toast.makeText(NumbersActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
                 Word word = words.get(position);
                 mMediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getmMediaResourceId());
                 mMediaPlayer.start();
