@@ -11,8 +11,8 @@ public class Word {
     private String mDefaultTranslation;
     private int mImageResourceId = NO_IMAGE_PROVIDED;
     private static final int NO_IMAGE_PROVIDED = -1;
-    private static final int NO_MEDIA_PROVIDED = -1;
-    private int mMediaResourceId = NO_MEDIA_PROVIDED;
+
+    private int mMediaResourceId = 0;
 
     public Word(String mMiwokTranslation, String mDefaultTranslation, int mMediaResourceId) {
         this.mMiwokTranslation = mMiwokTranslation;
@@ -47,7 +47,5 @@ public class Word {
         return mImageResourceId != NO_IMAGE_PROVIDED;
     }
 
-    public boolean hasMedia() {
-        return mMediaResourceId != NO_MEDIA_PROVIDED;
-    }
+
 }

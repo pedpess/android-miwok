@@ -31,6 +31,14 @@ public class NumbersActivity extends AppCompatActivity {
 
     private MediaPlayer mMediaPlayer;
 
+
+    private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mediaPlayer) {
+            releaseMediaPlayer();
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,11 +72,19 @@ public class NumbersActivity extends AppCompatActivity {
                 Word word = words.get(position);
                 mMediaPlayer = MediaPlayer.create(NumbersActivity.this, word.getmMediaResourceId());
                 mMediaPlayer.start();
+
+                mMediaPlayer.setOnCompletionListener(mCompletionListener);
             }
         });
 
 
+    }
 
+    private void releaseMediaPlayer() {
+        if (mMediaPlayer != null) {
+            mMediaPlayer.release();
 
+            mMediaPlayer = null;
+        }
     }
 }
